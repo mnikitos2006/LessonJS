@@ -1,0 +1,22 @@
+{
+  "name": "lesson",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnikitos2006/LessonJS.git"
+  },
+  "author": "Nikitos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnikitos2006/LessonJS/issues"
+  },
+  "homepage": "https://github.com/mnikitos2006/LessonJS#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
