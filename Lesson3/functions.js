@@ -119,4 +119,27 @@ var student={
         numberHome:"13/1"
     }
 }
+//Ещё 2 создать и в array commit and push
 
+var student1={
+    name:"Илья",
+    age:17,
+    address:{
+        city:"Moscow",
+        street:"Pyshkina",
+        numberHome:"12"
+    }
+}
+var student2={
+    name:"Георгий",
+    age:18,
+    address:{
+        city:"Rostov",
+        street:"Rostovskaya",
+        numberHome:"15"
+    }
+}
+var array = [student, student1, student2]
+console.log(array[0])
+console.log(array[1])
+console.log(array[2])
