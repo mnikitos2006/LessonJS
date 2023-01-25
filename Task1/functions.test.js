@@ -1,4 +1,4 @@
-const {getSeconds, sum, proizved, minus, delenie} = require("./functions");
+const {getSeconds, sum, proizved, minus, delenie,f16} = require("./functions");
 
 
 test('result getSeconds should be 3600', () => {
