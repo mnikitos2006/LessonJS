@@ -219,93 +219,115 @@ const users =
             "name": "Hortense",
             "surname": "Lowe",
             "full_name": "Elsa Koelpin MD",
-            "adress": "Moreno Valley",
+            "AdressId": 1,
             "age": 9,
-            "id": "1"
+            "id": "1",
+            "gender": "male"
         },
         {
             "createdAt": "2023-01-31T20:18:37.468Z",
             "name": "Jacinto",
             "surname": "DuBuque",
-            "full_name": "Edmund Turner",
-            "adress": "Irving",
+            "full_name": "Lox",
+            "AdressId": 2,
             "age": 1,
-            "id": "2"
+            "id": "2",
+            "gender": "male"
         },
         {
             "createdAt": "2023-02-01T06:12:26.640Z",
             "name": "Jordy",
             "surname": "Berge",
             "full_name": "Willard Hilll",
-            "adress": "Pensacola",
+            "AdressId": 3,
             "age": 1,
-            "id": "3"
+            "id": "3",
+            "gender": "male"
         },
         {
             "createdAt": "2023-01-31T19:21:13.990Z",
             "name": "Elizabeth",
             "surname": "Braun",
             "full_name": "Donna Leannon",
-            "adress": "South Gate",
+            "AdressId": 4,
             "age": 5,
-            "id": "4"
+            "id": "4",
+            "gender": "female"
         },
         {
             "createdAt": "2023-01-31T12:30:46.909Z",
             "name": "Theodora",
             "surname": "Anderson",
             "full_name": "Danny Howe",
-            "adress": "Hacienda Heights",
+            "AdressId": 5,
             "age": 1,
-            "id": "5"
+            "id": "5",
+            "gender": "female"
         },
         {
             "createdAt": "2023-02-01T06:15:49.606Z",
             "name": "Bernie",
             "surname": "Stiedemann",
             "full_name": "Rolando Grant",
-            "adress": "Overland Park",
+            "AdressId": 6,
             "age": 1,
-            "id": "6"
+            "id": "6",
+            "gender": "female"
         },
         {
             "createdAt": "2023-01-31T14:26:39.766Z",
             "name": "Bria",
             "surname": "Collier",
             "full_name": "Betsy Stanton",
-            "adress": "Bethesda",
+            "AdressId": 7,
             "age": 5,
-            "id": "7"
+            "id": "7",
+            "gender": "female"
         },
         {
             "createdAt": "2023-02-01T01:51:06.456Z",
             "name": "Jo",
             "surname": "Gleichner",
             "full_name": "Darrell Boehm",
-            "adress": "Boynton Beach",
+            "AdressId": 8,
             "age": 4,
-            "id": "8"
+            "id": "8",
+            "gender": "female"
         },
         {
             "createdAt": "2023-02-01T00:21:37.501Z",
             "name": "Alberta",
             "surname": "Windler",
             "full_name": "Wallace Schmidt",
-            "adress": "Pasadena",
+            "AdressId": 9,
             "age": 1,
-            "id": "9"
+            "id": "9",
+            "gender": "female"
         },
         {
             "createdAt": "2023-01-31T20:32:42.136Z",
             "name": "Tristin",
-            "surname": "Roob",
+            "surname": null,
             "full_name": "Jody Rowe",
-            "adress": "Southaven",
+            "AdressId": 10,
             "age": 2,
-            "id": "10"
+            "id": "10",
+            "gender": "female"
         }
     ]
 
+const addressList = [
+    {id: 1, name: "Moreno Valley"},
+    {id: 2, name: "Irving"},
+    {id: 3, name: "Pensacola"},
+    {id: 4, name: "Donna Leannon"},
+    {id: 5, name: "Hacienda Heights"},
+    {id: 6, name: "Overland Park"},
+    {id: 7, name: "Bethesda"},
+    {id: 8, name: "Boynton Beach"},
+    {id: 9, name: "Pasadena"},
+    {id: 10, name: "Southaven"}
+]
 
 function customSplice(arr, index, deleteCount, ...rest) {
     //index=1
@@ -560,22 +582,260 @@ function getFullName(user) {
 // console.log(user2)
 
 
-function getElement(user, elem) {
-    return user.age === elem
+// function getElement(user, elem) {
+//     return user.age === elem
+// }
+//
+// function customFind(arr, func, elem) {
+//     let findElement = undefined
+//     for (const arrElement of arr) {
+//         if (func(arrElement, elem)) {
+//             findElement = arrElement
+//             break
+//         }
+//
+//     }
+//     return findElement
+// }
+
+// console.log(customFind(users, getElement, 4));
+// console.log(array)
+
+
+//filter
+//filter возвращает новый массив
+//arr.filter(function(item,index,array){
+// если в return true то элемент будет добавлен в новый массив в противном случае нет
+// })
+
+// const newArr=users.filter(function (user){
+//     return user.age===9
+// })
+// console.log(newArr)
+// console.log(newArr.length)
+
+function getMale(elem) {
+    return elem.gender === "male"
 }
 
-function customFind(arr, func, elem) {
-    let findElement = undefined
-    for (const arrElement of arr) {
-        if (func(arrElement, elem)) {
-            findElement = arrElement
-            break
+function customFilter(arr, func) {
+    let newArray = []
+    // for (let i = 0; i < arr.length; i++){
+    //     if (func(arr[i])===true){
+    //         newArray.push(arr[i])
+    //     }
+    // }
+    for (let arrElement of arr) {
+        if (func(arrElement) === true) {
+            newArray.push(arrElement)
         }
-
     }
-    return findElement
+    return newArray
+
 }
 
-console.log(customFind(users, getElement, 4));
-console.log(array)
-module.exports = {customSplice, customSlice, customConcat}
+
+// console.log(customFilter(users, getMale));
+
+
+//Преобразование массива map
+//let result=arr.map(function(item,index,array){
+// return возвращается новое значение вместо элемента
+//}
+
+// const newUsers = users.map(function (user) {
+// return user
+// return user.age
+// return user.name
+// return {...user,car:"newCar",name:user.name+"!"}
+//     console.log(user.AdressId)
+//     let address=addressList.find(function (item){
+//         return user.AdressId===item.id
+//     })
+//     console.log(address)
+//     return{...user,addressName:address.name}
+// })
+//let result = arr.find(function(item,index,array){
+//если нашли вернул элемент(item),завершили поиск
+//если не нашли возвращается undefined
+//)}
+// console.log(newUsers)
+// function getElement1(elem) {
+//     return elem.name
+// }
+//
+function customMap(arr, func) {
+    let newArray = []
+    for (let i = 0; i < arr.length; i++) {
+        newArray.push(func(arr[i]))
+    }
+    return newArray
+}
+
+// console.log(customMap(users,getElement1));
+
+
+//arr.sort(fn)
+
+
+// const left=[3,4,2,1]
+// const right=[6]
+// const temp=5
+// //////////////////////////////
+// //left
+// const leftArray=[3,2,1]
+// const temp=4
+// const left=[3,2,1]
+// const right=[]
+// //////////////////////////////
+// //right
+// const leftArray=[]
+// const temp=6
+// //////////////////////////////
+// //left
+// const leftArray=[3,1]
+// const temp=2
+// const left=[1]
+// const right=[3]
+//
+// //left
+// const temp=1
+// //right
+// const temp=3
+// [1,2] [3]    [4],[6]
+//"3">"4"
+//"3">"1"
+//"3">"15" сравнивает по первому числу,потом по второму
+//[1,3,4]
+// console.log("1">"15")
+// console.log("2">"15")
+// console.log("3">"15")
+// const arrNumber = [15, 3, 4, 5, 6, 2, 1]
+//
+// function compare(a, b) {
+//     if (a > b) {
+//         return 1
+//     }
+//     if (a === b) {
+//         return 0
+//     }
+//     if (a < b) {
+//         return -1
+//     }
+//
+// }
+//
+// arrNumber.sort((a, b) => a - b)
+// arrNumber.sort(function (a, b) {
+//     return a - b
+// })
+// arrNumber.sort(function (a, b) {
+//     return compare(a, b)
+// })
+// arrNumber.sort((a, b) => compare(a, b))
+//
+//
+// users.sort((a, b) => (a.age - b.age))
+// users.sort((a, b) => (a.name ||"-" - b.name ||"-"))
+// // arrNumber.sort(compare)
+// console.log(users)
+// console.log(arrNumber)
+
+
+//1. Вывести значения всех элементов массива и соответствующие им индексы:
+//
+// Индексу 0 - соответствует число 42
+// Индексу 1 - соответствует число 65
+const anyNumbers = [42, 65, 49, 68, 56, 90,47, 90,90,70, 42, 51, 35, 58, 63, 40, 70];
+anyNumbers.forEach(function ff(number,index){
+ //   console.log(`индексу ${index} соответствует число ${number}`)
+})
+
+
+// 2. Найти и вывести на экран максимальное число массива:
+// let temp=0
+// anyNumbers.forEach(function f(number,index){
+//     if (temp<number){
+//         temp=number
+//     }
+//     // console.log(temp)
+// })
+// console.log(temp)
+//
+//
+// //3 найти наименьшее число
+// anyNumbers.forEach(function f(number,index){
+//     if (temp1>number){
+//         temp1=number
+//     }
+// })
+// console.log(temp1)
+
+
+//4 Определить индекс максимального числа массива
+// (или индексы, если число встречается более одного раза).
+//
+// Позиции (индексы) максимального числа в массиве: 6,7
+let temp1=anyNumbers[0]
+anyNumbers.forEach(function f(number,index){
+    if (temp1<number){
+        temp1=number
+    }
+})
+// console.log(temp1)
+// console.log(anyNumbers.indexOf(temp1));
+let indexOfNumber=[]
+
+
+for (let i = 0; i < anyNumbers.length; i++) {
+    let index=anyNumbers.lastIndexOf(temp1);
+    if (index!==-1){
+        indexOfNumber.push(index)
+        anyNumbers.splice(index,index+1)
+    }
+
+}
+// console.log(indexOfNumber)
+//Удалить повторяющиеся элементы массива
+
+// const arr = ["php", "php", "css", "css", "script", "script", "html", "html", "java"];
+// const duplicates=arr.filter((number,index,numbers)=>{
+//     console.log(number)
+//     console.log(index)
+//     console.log(numbers)
+//     console.log(numbers.indexOf(number))
+//     console.log(numbers.indexOf(number) !== index);
+//     return numbers.indexOf(number) !==index
+// })
+//
+// console.log(duplicates)
+
+
+
+//Сумма элементов двух массивов
+//[5,7,9,4,5]
+// const arr1 = [1, 2, 3, 4, 5];
+// const arr2 = [4, 5, 6];
+// const arr3=[]
+// for (let i = 0; i < arr1.length; i++) {
+//     console.log(i)
+//     arr3.push(arr1[i]+(arr2[i]||0))
+//
+// }
+// console.log(arr3)
+
+// let lox=100
+// function NikFun(lox){
+//     if (lox>1){
+//         return 'Красавчик'
+//     }else {
+//         return 'Не красавчик'
+//
+//     }
+//
+// }
+//
+// console.log(NikFun(-100));
+
+
+module.exports = {customSplice, customSlice, customConcat, customFilter, customMap}
